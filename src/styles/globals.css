@@ -120,6 +120,17 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .backdrop_layer {
+    @apply transition md:hidden fixed z-9998  top-0 bottom-0 right-0 left-0 w-full;
+    /* From https://css.glass */
+    background: rgba(38, 36, 36, 0.71);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(38, 36, 36, 0.3);
+    
+  }
 }
 
 /* Global styles */
