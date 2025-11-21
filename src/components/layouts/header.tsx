@@ -49,7 +49,7 @@ export default function Header() {
                             {NAVIGATION_ITEMS.map((item) => (
                                 <li key={item.href}>
                                     <Button variant="ghost" asChild>
-                                        <Link href={item.href}>
+                                        <Link href={item.href} className="text-white hover:text-primary">
                                         {item.label}
                                         </Link>
                                     </Button>
