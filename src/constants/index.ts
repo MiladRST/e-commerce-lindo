@@ -1,7 +1,7 @@
 export const NAVIGATION_ITEMS = [
     {
         label: "صفحه اصلی",
-        href: "/",
+        href: "/", 
     },
     {
         label: "فروشگاه",
@@ -16,6 +16,27 @@ export const NAVIGATION_ITEMS = [
         href: "/contact",
     },  
 ];
+
+export const FOOTER_LINKS = [
+    {
+        label: "پاسخ به سوالات متداول",
+        href: "/faq",
+    },
+    {
+        label: 'رویه های بازگردادن کالا',
+        href: '/'
+    },
+    {
+        label: "حریم خصوصی",
+        href: "/privacy",
+    },
+    {
+        label: "قوانین و مقررات",
+        href: "/terms",
+    },
+];
+
+
 
 export const SOCIAL_LINKS = [
     {

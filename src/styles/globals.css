@@ -62,7 +62,7 @@
   --accent-foreground: oklch(0.205 0 0); /* Text color on accent elements */
   --destructive: oklch(0.577 0.245 27.325); /* Destructive actions, error states */
   --border: oklch(74.48% 0.069 65.70); /* Borders, dividers, separators */
-  --input: oklch(100.00% 0.000 0); /* Input fields, form elements */
+  --input: oklch(97.64% 0.009 62.59); /* Input fields, form elements */
   --ring: oklch(0.708 0 0); /* Focus rings, active states */
   --chart-1: oklch(0.646 0.222 41.116); /* Chart colors */
   --chart-2: oklch(0.6 0.118 184.704); /* Chart colors */
