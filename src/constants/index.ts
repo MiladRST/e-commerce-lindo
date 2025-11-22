@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 export const NAVIGATION_ITEMS = [
     {
         label: "صفحه اصلی",
@@ -36,15 +38,25 @@ export const FOOTER_LINKS = [
     },
 ];
 
-
-
 export const SOCIAL_LINKS = [
     {
         label: "فیسبوک",
         href: "https://www.facebook.com",
+        icon: Facebook as LucideIcon
     },
     {
         label: "توییتر",
         href: "https://www.twitter.com",
+        icon: Twitter as LucideIcon
+    },
+    {
+        label: "لینکدین",
+        href: "https://www.linkedin.com",
+        icon: Linkedin as LucideIcon
+    },
+    {
+        label: "اینستاگرام",
+        href: "https://www.instagram.com",
+        icon: Instagram as LucideIcon
     },
 ];

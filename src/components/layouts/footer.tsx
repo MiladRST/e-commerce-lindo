@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button";
 import SubscribeForm from "./subscribe-form";
 //
 import BgImg from "@/public/images/newsletter.png"
-import { FOOTER_LINKS } from "@/constants";
+import { FOOTER_LINKS, SOCIAL_LINKS } from "@/constants";
+//icons
+import { Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
 
 export default function Footer() {
 
@@ -93,6 +95,19 @@ export default function Footer() {
                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div className="flex flex-col md:flex-row items-center justify-between text-foreground text-xs gap-4 py-6">
+                    <div>made with ❤️ by <Link href="https://miladrastin.ir" target="_blank" className="text-sky-500">Milad Rastin</Link></div>
+                    <div className="flex items-center gap-3">                        
+                        {SOCIAL_LINKS.map((link) => {
+                            return (
+                                <Link href={link.href} target="_blank" key={link.label}>
+                                    <link.icon className="size-4" />
+                                </Link>
+                            )
+                        })}
                     </div>
                 </div>
             </Container>
