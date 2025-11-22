@@ -14,9 +14,9 @@ export default function Footer() {
     return (
         <footer>
             <Container>
-                <div className="bg-secondary rounded-lg overflow-hidden">
+                <div className="bg-secondary rounded-2xl overflow-hidden">
                     {/* news letter */}
-                    <div className="relative w-full min-h-56 py-20 px-4 flex flex-col items-center justify-center">   
+                    <div className="relative w-full min-h-56 py-20 px-4 flex flex-col items-center justify-center rounded-2xl">   
                         <Image src={BgImg} fill alt="news_letter" className="object-cover" />
 
                         <div className="relative z-2 text-white flex flex-col items-center gap-3">
@@ -75,22 +75,30 @@ export default function Footer() {
                         <div className="col-span-12 sm:col-span-6 lg:col-span-4 flex items-center justify-center">
                             <div className="w-fit mx-auto grid grid-cols-2 gap-6 items-center justify-center">
                                <div className="flex flex-col items-center gap-4">
-                                <Image src="/images/payment.png" alt="payment" width={40} height={40} />
+                                <Image src="/images/payment.png" alt="payment" 
+                                width={40} height={40} 
+                                style={{ width:'auto', height: 'auto'}} />
                                 <h6 className="text-white text-[13px] text-center">پرداخت در محل</h6>
                                </div>
 
                                <div className="flex flex-col items-center gap-4">
-                                <Image src="/images/support.png" alt="support" width={40} height={40} />
+                                <Image src="/images/support.png" alt="support" 
+                                width={40} height={40} 
+                                style={{ width:'auto', height: 'auto'}} />
                                 <h6 className="text-white text-[13px] text-center">پشتیبانی 24 ساعته</h6>
                                </div>
 
                                <div className="flex flex-col items-center gap-4">
-                                <Image src="/images/shipment.png" alt="shipment" width={40} height={40} />
+                                <Image src="/images/shipment.png" alt="shipment" 
+                                width={40} height={40} 
+                                style={{ width:'auto', height: 'auto'}} />
                                 <h6 className="text-white text-[13px] text-center">ارسال سریع</h6>
                                </div>
 
                                <div className="flex flex-col items-center gap-4">
-                                <Image src="/images/original.png" alt="original" width={40} height={40} />
+                                <Image src="/images/original.png" alt="original" 
+                                width={40} height={40} 
+                                style={{ width:'auto', height: 'auto'}} />
                                 <h6 className="text-white text-[13px] text-center">ضمانت اصل بودن کالا</h6>
                                </div>
                             </div>

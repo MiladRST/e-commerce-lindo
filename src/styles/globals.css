@@ -44,11 +44,11 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 1rem;
   /* main colors */
   --background: oklch(97.64% 0.009 62.59); /* Main page background */
   --foreground: oklch(26.95% 0.056 277.65); /* Default text color (should contrast with background) */
-  --card: oklch(100.00% 0.000 0); /* Card background */
+  --card: oklch(97.64% 0.009 62.59); /* Card background */
   --card-foreground:  oklch(26.95% 0.056 277.65); /* Text color on card elements */
   --popover: oklch(1 0 0); /* Popover background */
   --popover-foreground: oklch(0.145 0 0); /* Popover text color */
@@ -58,7 +58,7 @@
   --secondary-foreground: oklch(100.00% 0.000 0); /* Text color on secondary elements */
   --muted: oklch(74.48% 0.069 65.70); /* Subtle backgrounds (disabled states, subtle sections) */
   --muted-foreground: oklch(26.95% 0.056 277.65); /* Text color on muted backgrounds (usually lighter gray) */
-  --accent: #ffffff; /* Accent highlights, hover states */
+  --accent: oklch(1.2 0 0); /* Accent highlights, hover states */
   --accent-foreground: oklch(0.205 0 0); /* Text color on accent elements */
   --destructive: oklch(0.577 0.245 27.325); /* Destructive actions, error states */
   --border: oklch(74.48% 0.069 65.70); /* Borders, dividers, separators */

@@ -1,9 +1,16 @@
 import Container from "@/components/modules/container";
-export default function Home() {
+import LatestProducts from "@/components/templates/home/latest-products";
+//types
+
+export default async function Home() {
+
+  
+  
   return (
    <>
     <Container extraClasses="py-10">
-      <h1>Home Page</h1>
+      {/* products list */}
+      <LatestProducts />
     </Container>
    </>
   );
