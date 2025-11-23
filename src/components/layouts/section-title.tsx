@@ -1,6 +1,5 @@
 import Image from "next/image";
 import  leafImg from "@/public/images/leaf.png";
-import { cn } from "@/lib/utils";
 export default function SectionTitle({ title }: { title: string }){
     return (
         <div className="w-fit relative pr-5">
@@ -9,7 +8,7 @@ export default function SectionTitle({ title }: { title: string }){
             </span>
             <h2 className="text-xl font-bold flex items-center gap-1"> 
                 { title.split(' ').map((word, index) => (
-                    <span key={index} className={cn(index === 0 ? "text-primary" : "text-secondary")}>{word}</span>
+                    <span key={index} className={`${index === 0 ? "text-primary" : "text-secondary"}`}>{word}</span>
                 ))}
             </h2>
         </div>
