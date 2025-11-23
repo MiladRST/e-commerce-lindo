@@ -7,6 +7,7 @@ import "@/styles/globals.css";
 //components
 import Header from "@/components/layouts/header";
 import Footer from "@/components/layouts/footer";
+import Container from "@/components/modules/container";
 
 //fonts
 const IRANSans = localFont({
@@ -83,7 +84,9 @@ export default function RootLayout({
           disableTransitionOnChange>
         </ThemeProvider> */}
             <Header />
-            {children}
+            <Container extraClasses="py-10">
+              {children}
+            </Container>
             <Footer />
       </body>
     </html>

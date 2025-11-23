@@ -1,10 +1,11 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import Container from "@/components/modules/container";
 import ProductsListSkeleton from "@/components/skeleton/products-list";
 import ProductCard from "@/components/modules/product-card";
 import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 import type { Product } from "@/types";
+import SectionTitle from "@/components/layouts/section-title";
 
 export default async function LatestProducts() {
     const res = await fetch('https://fakestoreapi.com/products' , { next: { revalidate: 60 * 5 /*5 minutes*/ }})
@@ -15,12 +16,17 @@ export default async function LatestProducts() {
     }
 
     return (
-        <Container extraClasses="py-10">
-            <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-bold">جدیدترین محصولات</h2>
+        <section className="py-10">
+            <div className="flex items-center justify-between mb-4 md:mb-10">
+
+                <SectionTitle title="جدیدترین محصولات" />
+                
 
                 <Button variant="default" asChild>
-                    <Link href="/products">مشاهده همه</Link>
+                    <Link href="/products" className="flex items-center gap-2">
+                        مشاهده همه
+                        <ArrowLeft size={20} />
+                    </Link>
                 </Button>
             </div>
             <Suspense fallback={<ProductsListSkeleton />}>
@@ -30,6 +36,6 @@ export default async function LatestProducts() {
                     ))}
                 </div>
             </Suspense>
-        </Container>
+        </section>
     )
 }
