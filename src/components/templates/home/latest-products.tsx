@@ -20,8 +20,6 @@ export default async function LatestProducts() {
 
             const data = await response.json();
             const { products } = data
-            console.log('latest-products =>', products)
-
 
             if (!Array.isArray(products) || products.length === 0) {
                 return null;
@@ -62,8 +60,6 @@ export default async function LatestProducts() {
                         <ProductCard key={product.id} product={product} />
                     ))}
                 </div>
-
-                product list
             </Suspense>
         </section>
     )
