@@ -10,17 +10,19 @@ export default function ProductCard({ product } : { product: Product }) {
             
             <Card className="relative max-w-full">
                 {/* discount badge */}
-                {product?.hasDiscount && (
-                    <span className="absolute z-10 top-0 left-3 bg-secondary text-white w-9 h-9 flex items-center justify-center rounded-b-full">%</span>
+                {product?.discountPercentage && (
+                    <span className="absolute z-10 top-0 left-3 bg-secondary text-white w-9 h-9 flex items-center justify-center rounded-b-full">
+                        %
+                    </span>
                 )}
 
                 <CardHeader>
-                    <div className="relative h-[167px] w-full mx-auto rounded-2xl overflow-hidden">
+                    <div className="relative h-[198px] w-full flex items-center justify-center mx-auto rounded-2xl overflow-hidden">
                         <Image 
-                        src={product?.image} 
+                        src={product?.thumbnail} 
                         alt={product?.title} 
-                        width={198} 
-                        height={167} 
+                        width={150} 
+                        height={150} 
                         loading="lazy"
                         className="object-contain" />
                     </div>
@@ -32,7 +34,7 @@ export default function ProductCard({ product } : { product: Product }) {
                         </h3>
                         <div className="flex flex-col gap-1"> 
                             <span className="text-sm text-primary font-bold"> {product?.price} <b>تومان</b>  </span>
-                            {product?.hasDiscount && (
+                            {product?.discountPercentage && (
                                 <span className="text-muted-foreground text-xs line-through"> {product?.price} <b>تومان</b>  </span>
                             )}
                         </div>

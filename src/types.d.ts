@@ -1,14 +1,30 @@
 export interface Product {
-    id: number;
+    id: number | string;
     title: string;
-    price: number;
     description: string;
     category: string;
-    image: string;
-    rating?: {
-        rate: number;
-        count: number;
-    };
-    hasDiscount?: boolean;
-    discountPercentage?: number;
+    price: number,
+    discountPercentage: number,
+    rating: number,
+    stock: number,
+    tags: Array<string>,
+    brand: string,
+    sku: string,
+    weight: number,
+    dimensions: object,
+    warrantyInformation: string,
+    shippingInformation: string,
+    availabilityStatus: string,
+    reviews: Array<string>,
+    returnPolicy: string,
+    minimumOrderQuantity: number,
+    meta: object,
+    images: Array<string>,
+    thumbnail: string,
+}
+
+export interface ProductCategory {
+    slug: string;
+    name: string;
+    url: string;
 }

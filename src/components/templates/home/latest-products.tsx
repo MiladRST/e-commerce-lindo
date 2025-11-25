@@ -8,8 +8,35 @@ import type { Product } from "@/types";
 import SectionTitle from "@/components/layouts/section-title";
 
 export default async function LatestProducts() {
-    const res = await fetch('https://fakestoreapi.com/products' , { next: { revalidate: 60 * 5 /*5 minutes*/ }})
-    const products: Product[] = await res.json()
+    const getLatestProducts = async () => {
+        try{
+            const response = await fetch('https://dummyjson.com/products?limit=10' , { 
+                next: { revalidate: 60 * 5 /*5 minutes*/ }
+            })
+            
+            if (!response.ok) {
+                throw new Error(`Failed to fetch latest products: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const { products } = data
+            console.log('latest-products =>', products)
+
+
+            if (!Array.isArray(products) || products.length === 0) {
+                return null;
+            }
+
+            return products;
+
+        }catch(error){
+            console.error("Error fetching latest products:", error);
+            return null;
+        }
+    }
+
+    const products = await getLatestProducts()
+    
 
     if (!products?.length) {
         return <div>No products found</div>
@@ -31,10 +58,12 @@ export default async function LatestProducts() {
             </div>
             <Suspense fallback={<ProductsListSkeleton />}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                    {products?.length > 0 && products.slice(0, 10).map((product: Product) => (
+                    {products.map((product: Product) => (
                         <ProductCard key={product.id} product={product} />
                     ))}
                 </div>
+
+                product list
             </Suspense>
         </section>
     )
