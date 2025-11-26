@@ -17,7 +17,7 @@ export default function ProductCard({ product } : { product: Product }) {
                 )}
 
                 <CardHeader>
-                    <div className="relative h-[198px] w-full flex items-center justify-center mx-auto rounded-2xl overflow-hidden">
+                    <div className="relative h-[150px] w-full flex items-center justify-center mx-auto rounded-2xl overflow-hidden">
                         <Image 
                         src={product?.thumbnail} 
                         alt={product?.title} 

@@ -28,3 +28,12 @@ export interface ProductCategory {
     name: string;
     url: string;
 }
+
+// products
+interface ProductsSearchParams {
+  category?: string;
+  minPrice?: string;
+  maxPrice?: string;
+  search?: string;
+  sort?: string;
+}
