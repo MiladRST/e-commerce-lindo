@@ -29,7 +29,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
       
       <div className="flex gap-8">
         {/* Client Component for interactive filters */}
-        <aside className="w-64 shrink-0">
+        <aside className="w-76 shrink-0">
           <FiltersSidebar 
           currentFilters={{ category, minPrice, maxPrice, search, sort }} 
           categories={categories}
