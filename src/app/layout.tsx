@@ -86,7 +86,7 @@ export default function RootLayout({
           disableTransitionOnChange>
         </ThemeProvider> */}
             <Header />
-            <Container extraClasses="py-10">
+            <Container extraClasses="relative py-10">
               {children}
             </Container>
             <Footer />

@@ -17,6 +17,10 @@ export const NAVIGATION_ITEMS = [
         label: "تماس با ما",
         href: "/contact",
     },  
+    {
+        label: "سوالات متداول",
+        href: "/faq",
+    },
 ];
 
 export const FOOTER_LINKS = [
