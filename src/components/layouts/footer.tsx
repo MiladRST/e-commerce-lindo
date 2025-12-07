@@ -6,8 +6,6 @@ import SubscribeForm from "./subscribe-form";
 //
 import BgImg from "@/public/images/newsletter.png"
 import { FOOTER_LINKS, SOCIAL_LINKS } from "@/constants";
-//icons
-import { Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
 
 export default function Footer() {
 

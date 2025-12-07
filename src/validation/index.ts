@@ -1,10 +1,12 @@
 import { z } from 'zod'
 
 // news-letter form form
-export const getNewsletterFormSchema = () => 
+export const NewsletterFormSchema = () => 
   z.object({
     email: z
     .email('ایمیل معتبر نیست.')
   })
 
-export type NewsletterFormValues = z.infer<ReturnType<typeof getNewsletterFormSchema>>
+export type NewsletterFormValues = z.infer<ReturnType<typeof NewsletterFormSchema>>
+
+

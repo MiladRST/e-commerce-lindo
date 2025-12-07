@@ -9,12 +9,12 @@ import { Input } from '@/components/ui/input'
 //icons
 import { Loader2, SendHorizontal } from 'lucide-react'
 //validation
-import { getNewsletterFormSchema, type NewsletterFormValues } from '@/validation'
+import { NewsletterFormSchema, type NewsletterFormValues } from '@/validation'
 
 
 export default function SubscribeForm() {
     
-    const formSchema = getNewsletterFormSchema()
+    const formSchema = NewsletterFormSchema()
 
     const form = useForm<NewsletterFormValues>({
         resolver: zodResolver(formSchema),
