@@ -1,3 +1,10 @@
+import { 
+    Accordion,
+    AccordionItem,
+    AccordionTrigger,
+    AccordionContent,
+} from "@/components/ui/accordion"
+
 export default async function FAQPage() {
 
     return(
@@ -13,8 +20,31 @@ export default async function FAQPage() {
                 </div>
             </div>
 
-            <div className="mt-8 md:mt-50 h-40">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam, ab?
+            <div className="mt-8 md:mt-50 mb-10">
+                <Accordion
+                type="single"
+                collapsible
+                className="w-full"
+                defaultValue="item-1"
+                >
+                    {
+                        Array.from({length: 10}).map((_, index) =>{ return (
+                            <AccordionItem value={`item-${index+1}`} key={index}>
+                                <AccordionTrigger className="text-right leading-7">
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                <p className="leading-7">
+                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت  گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد
+                                </p>
+                                
+                                </AccordionContent>
+                            </AccordionItem>
+                        )})
+                    }
+                
+                
+                </Accordion>
             </div>
         </>
     )
