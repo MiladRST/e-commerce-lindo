@@ -1,5 +1,4 @@
 
-import { Suspense } from "react";
 import CategorySlider from "./category-slider";
 import type { ProductCategory } from "@/types";
 export default async function ProductCategories() {
@@ -37,9 +36,7 @@ export default async function ProductCategories() {
 
     return (
         <section className="py-10">
-            <Suspense fallback={<div>Loading...</div>}>
-                <CategorySlider categories={categories as ProductCategory[]} />
-            </Suspense>
+            <CategorySlider categories={categories as ProductCategory[]} />
         </section>
     )
 }

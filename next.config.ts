@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       new URL('https://fakestoreapi.com/**'),
       new URL('https://cdn.dummyjson.com/**'),
+      new URL('https://swiperjs.com/demos/images/**'),
     ],
   },
 };

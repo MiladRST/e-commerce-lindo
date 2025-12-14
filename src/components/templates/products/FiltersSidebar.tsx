@@ -1,34 +1,36 @@
 'use client';
 
-import { ProductCategory } from '@/types';
+import type { ProductCategory, ProductsSearchParams } from '@/types';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { useState, useTransition } from 'react';
-
+//shadcn ui
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label"
+//icons
 import { Loader2 } from 'lucide-react';
 
-export default function FiltersSidebar({ currentFilters, categories }: { currentFilters: {
-    category?: string;
-    minPrice?: string;
-    maxPrice?: string;
-    search?: string;
-    sort?: string;
-  } , categories: ProductCategory[]}) {
+export default function FiltersSidebar({ currentFilters, categories } : 
+  { currentFilters: ProductsSearchParams , categories: ProductCategory[]}
+) {
+
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
   const [isPending, startTransition] = useTransition();
   
   // Local state for immediate UI updates
   const [search, setSearch] = useState(currentFilters.search || '');
-  const [minPrice, setMinPrice] = useState(currentFilters.minPrice || '');
-  const [maxPrice, setMaxPrice] = useState(currentFilters.maxPrice || '');
+  const [minPrice, setMinPrice] = useState(Number(currentFilters.minPrice) || 0);
+  const [maxPrice, setMaxPrice] = useState(Number(currentFilters.maxPrice) || 1000);
   const [category, setCategory] = useState(currentFilters.category || 'all');
   // Update URL with new filters
+
   const updateFilters = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());
-
+    console.log('params => ', params)
+  
     if (key === 'category') {
       setCategory(value);
     }
@@ -44,6 +46,12 @@ export default function FiltersSidebar({ currentFilters, categories }: { current
     });
   };
 
+  const handlePriceRangeChange = (value: number[]) => {
+    console.log(value);
+    setMinPrice(value[0]);
+    setMaxPrice(value[1]);
+  }
+
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     updateFilters('search', search);
@@ -51,9 +59,10 @@ export default function FiltersSidebar({ currentFilters, categories }: { current
 
   const clearFilters = () => {
     setSearch('');
-    setMinPrice('');
-    setMaxPrice('');
+    setMinPrice(0);
+    setMaxPrice(0);
     setCategory('all');
+    //
     startTransition(() => {
       router.push(pathname);
     });
@@ -62,8 +71,7 @@ export default function FiltersSidebar({ currentFilters, categories }: { current
   return (
     <div className="space-y-6">
       {/* Search */}
-      <div>
-        <h3 className="font-semibold mb-3">Search</h3>
+      {/* <div>
         <form onSubmit={handleSearchSubmit}>
           <input
             type="text"
@@ -73,14 +81,17 @@ export default function FiltersSidebar({ currentFilters, categories }: { current
             className="w-full px-3 py-2 border rounded-lg"
           />
         </form>
-      </div>
+      </div> */}
 
       {/* Category Filter */}
       { categories.length > 0 && (
       <div className="border border-primary rounded-lg p-4">
         <h3 className="font-semibold text-primary mb-3">دسته بندی محصولات</h3>
         <div className="flex flex-col gap-2 bg-white max-h-[300px] overflow-y-auto rounded-lg p-4">
-          <RadioGroup defaultValue="all" onValueChange={(value) => updateFilters('category', value)} style={{ direction: 'rtl' }}>
+          <RadioGroup 
+          onValueChange={(value) => updateFilters('category', value)} 
+          value={currentFilters.category || 'all'}
+          style={{ direction: 'rtl' }}>
             <div className="flex items-center gap-2">
               <RadioGroupItem value="all" id="all" />
               <Label htmlFor="all">همه دسته بندی ها</Label>
@@ -100,23 +111,18 @@ export default function FiltersSidebar({ currentFilters, categories }: { current
       {/* Price Range */}
       <div className="border border-primary rounded-lg p-4">
         <h3 className="font-semibold text-primary mb-3">محدوده قیمت</h3>
-        <div className="space-y-2">
-          <input
-            type="number"
-            value={minPrice}
-            onChange={(e) => setMinPrice(e.target.value)}
-            onBlur={() => updateFilters('minPrice', minPrice)}
-            placeholder="Min price"
-            className="w-full px-3 py-2 border rounded-lg"
+        <div className="space-y-2" dir="ltr">
+          <Slider 
+          
+            dir="ltr"
+            min={0}
+            max={1000}
+            value={[minPrice, maxPrice]}
+            onValueChange={handlePriceRangeChange}
+            disabled={isPending}
           />
-          <input
-            type="number"
-            value={maxPrice}
-            onChange={(e) => setMaxPrice(e.target.value)}
-            onBlur={() => updateFilters('maxPrice', maxPrice)}
-            placeholder="Max price"
-            className="w-full px-3 py-2 border rounded-lg"
-          />
+
+          {minPrice} - {maxPrice}
         </div>
       </div>
 

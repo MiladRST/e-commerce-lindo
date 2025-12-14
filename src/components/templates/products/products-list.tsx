@@ -1,7 +1,10 @@
 import Link from "next/link";
+//types
 import type { Product, ProductsSearchParams } from "@/types";
-import ProductCard from "@/components/modules/product-card";
+//shadcn ui
 import { Button } from "@/components/ui/button";
+//components
+import ProductCard from "@/components/modules/product-card";
 
 export default async function ProductsList({ searchParams } : { 
     searchParams: Promise<ProductsSearchParams> }) {

@@ -56,7 +56,7 @@
   --primary-foreground: oklch(100.00% 0.000 0); /* Text color on primary elements (usually white/light) */
   --secondary: oklch(37.20% 0.065 211.79); /* Secondary buttons, subtle backgrounds */
   --secondary-foreground: oklch(100.00% 0.000 0); /* Text color on secondary elements */
-  --muted: oklch(74.48% 0.069 65.70); /* Subtle backgrounds (disabled states, subtle sections) */
+  --muted: oklch(0.8267 0 0); /* Subtle backgrounds (disabled states, subtle sections) */
   --muted-foreground: oklch(26.95% 0.056 277.65); /* Text color on muted backgrounds (usually lighter gray) */
   --accent: oklch(1.2 0 0); /* Accent highlights, hover states */
   --accent-foreground: oklch(0.205 0 0); /* Text color on accent elements */
@@ -157,4 +157,8 @@ body, html {
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+}
+
+#thumb_swiper .swipper-wrapper {
+  height: 400px !important;
 }

@@ -2,9 +2,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import watchImage from "@/public/images/watch.png";

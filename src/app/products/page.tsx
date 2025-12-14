@@ -1,42 +1,43 @@
+import { Suspense } from 'react';
+//components
+import ProductsList from "@/components/templates/products/products-list";
+import ProductsSidebar from "@/components/templates/products/products-sidebar";
+import ProductCardSkeleton from "@/components/skeleton/product-card";
+//types
 import type { Metadata } from "next";
+import type { ProductsSearchParams } from "@/types";
 
 export const metadata: Metadata = {
   title: "Products",
 }
-
-import { Suspense } from 'react';
-// import ProductGrid from '@/components/ProductGrid';
-// import { getProducts } from '@/lib/api';
-import FiltersSidebar from "@/components/templates/products/FiltersSidebar";
-import ProductsList from "@/components/templates/products/ProductsList";
-import type { ProductCategory, ProductsSearchParams } from "@/types";
-import ProductCardSkeleton from "@/components/skeleton/product-card";
-
-
 export default async function ProductsPage({ searchParams }: { searchParams: Promise<ProductsSearchParams> }) {
     
   const { category, minPrice, maxPrice, search, sort } = await searchParams;
 
+  const filters = {
+    category,
+    minPrice,
+    maxPrice,
+    search,
+    sort,
+  }
+
   console.log('page searchParams =>', await searchParams)
 
-  const response = await fetch('https://dummyjson.com/products/categories')
-  const data = await response.json()
-  const categories = data as ProductCategory[]
+  
+
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Products</h1>
       
       <div className="flex gap-8">
-        {/* Client Component for interactive filters */}
-        <aside className="w-76 shrink-0">
-          <FiltersSidebar 
-          currentFilters={{ category, minPrice, maxPrice, search, sort }} 
-          categories={categories}
-          />
-        </aside>
 
-        {/* Server Component for products with Suspense */}
+        <aside className="w-80 shrink-0">
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProductsSidebar filters={filters} />
+          </Suspense>
+        </aside>
+        
         <main className="flex-1">
           <Suspense fallback={<ProductsSkeleton />}>
             <ProductsList searchParams={searchParams} />

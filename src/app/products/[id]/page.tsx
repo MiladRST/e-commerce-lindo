@@ -1,7 +1,13 @@
+// built-in
 import { Metadata, ResolvingMetadata } from "next";
-import Image from "next/image"
 import { notFound } from "next/navigation";
+//types
 import type { Product } from "@/types"
+//components
+import ProductGallery from "@/components/templates/products/single/product-gallery"
+import ProductDetails from "@/components/templates/products/single/product-details"
+import ProductAssurance from "@/components/templates/products/single/product-assurance";
+import AddToCart from "@/components/templates/products/single/add-to-cart";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> },
   parent: ResolvingMetadata
@@ -23,7 +29,6 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   }
 }
 
-
 export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
 
@@ -41,7 +46,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     }
 
     const product : Product | null = await response.json()
-    //console.log('single product', product)
+    console.log('single product', product)
 
     //check if no product is available
     if(!product) {
@@ -51,8 +56,25 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     //return the product details
     return (
         <>
-            <h1>{product.title} - {product.brand} </h1>
-            <Image src={product.thumbnail} alt={product.title} width={250} height={250} />
+
+            <div className="flex flex-col md:flex-row md:flex-wrap gap-6 ">
+              {/* product gallery */}
+              <div className="w-full mx-auto md:shrink-0 md:max-w-[400px]">
+                <ProductGallery images={product?.images || []} />
+              </div>
+
+              {/* product details */}
+              <div className="w-auto grow">
+                <ProductDetails product={product} />
+              </div>
+
+              {/* product card */}
+              <div className="w-full flex flex-col gap-4 lg:shrink-0 lg:max-w-68 ">
+                <ProductAssurance />
+                <AddToCart product={product} />
+              </div>
+
+            </div>
         </>
     )
 }
