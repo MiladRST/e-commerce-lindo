@@ -162,3 +162,25 @@ body, html {
 #thumb_swiper .swipper-wrapper {
   height: 400px !important;
 }
+
+
+/* swiper pagination */
+
+.custom-pagination{ 
+
+}
+
+.custom-bullet {
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  background-color: #fff;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.custom-bullet.swiper-pagination-bullet-active {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}

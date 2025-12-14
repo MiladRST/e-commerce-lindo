@@ -1,7 +1,6 @@
 "use client"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
-import "swiper/css";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import watchImage from "@/public/images/watch.png";

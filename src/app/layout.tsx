@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import localFont from 'next/font/local'
 
 import "@/styles/globals.css";
+import "swiper/css";
 //components
 import Header from "@/components/layouts/header";
 import Footer from "@/components/layouts/footer";
