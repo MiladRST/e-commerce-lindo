@@ -51,7 +51,7 @@ export default async function ArticlesPage(
                             }
                         </div>
 
-                        <div dir='ltr'>
+                        <div dir='ltr' className="my-8">
                             <PaginationWithLinks 
                             page={currentPage}
                             pageSize={perPage}
