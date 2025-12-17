@@ -5,7 +5,7 @@ export default async function ArticlePage({ params} : { params: Promise<{ id: st
     const response = await fetch(`https://dummyjson.com/posts/${id}`, { next: { revalidate: 60 * 5}})
 
     if(!response.ok) {
-        return <div>Failed to fetch article</div>
+        return <div>Failed to fetch article-details</div>
     }
 
     const article: ArticleInt = await response.json()

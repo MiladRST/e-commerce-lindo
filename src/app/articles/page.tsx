@@ -1,6 +1,9 @@
+//types
 import type { ArticleInt } from "@/types"
+//components
 import ArticleCard from "@/components/modules/article-card"
-import {PaginationWithLinks} from '@/components/modules/pagination-with-links'
+//shadcn ui
+import {PaginationWithLinks} from '@/components/ui/pagination-with-links'
 
 export default async function ArticlesPage(
     { searchParams } : 
@@ -53,6 +56,7 @@ export default async function ArticlesPage(
                             page={currentPage}
                             pageSize={perPage}
                             totalCount={total}
+                            navigationMode="router"
                             />
                         </div>
                     </>
