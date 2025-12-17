@@ -164,12 +164,7 @@ body, html {
 }
 
 
-/* swiper pagination */
-
-.custom-pagination{ 
-
-}
-
+/* hero-slider -> swiper pagination */
 .custom-bullet {
   width: 6px;
   height: 6px;

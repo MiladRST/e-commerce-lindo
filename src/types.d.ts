@@ -37,3 +37,17 @@ interface ProductsSearchParams {
   search?: string;
   sort?: string;
 }
+
+//posts 
+export interface ArticleInt {
+  readonly id: number;
+  title: string;
+  body: string;
+  tags: string[];
+  reactions: {
+    likes: number;
+    dislikes: number;
+  },
+  views: number;
+  userId: number;
+}

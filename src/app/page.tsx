@@ -7,6 +7,7 @@ import HeroSlider from "@/components/templates/home/hero-slider";
 import LatestProducts from "@/components/templates/home/latest-products";
 import FullBanner from "@/components/templates/home/full-banner";
 import ProductCategories from "@/components/templates/home/product-categories";
+import LatestArticles from "@/components/templates/home/latest-articles";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -38,6 +39,10 @@ export default async function Home() {
   </Suspense>
 
    <FullBanner />
+
+   <Suspense fallback={<div>fetching latest articles ...</div>}>
+    <LatestArticles />
+   </Suspense>
 
    </>
   )
