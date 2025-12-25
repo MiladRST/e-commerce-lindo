@@ -45,7 +45,7 @@ export default function SubscribeForm() {
                           <Input
                             {...field}
                             id='email'
-                            placeholder='ایمیل خود را وارد نمایید'
+                            placeholder='Enter your email'
                             className="max-w-full w-52 bg-white text-foreground placeholder:text-xs placeholder:text-gray-400 rounded-full"
                           />
                         </FormControl>
@@ -60,8 +60,8 @@ export default function SubscribeForm() {
                 {isSubmitting && (
                   <Loader2 className='mr-2 h-4 w-4 animate-spin' />
                 )}
-                ارسال
-                <SendHorizontal className="rotate-180" />
+                Send
+                <SendHorizontal />
               </Button>
             </form>
         </Form>

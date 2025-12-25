@@ -5,31 +5,43 @@ interface AssuranceItem {
     title: string;
     image:string
 }
+type propType = string | undefined
 
-const assuranceItems : AssuranceItem[] = [
-    {
-        id:1,
-        title: 'پرداخت در محل',
-        image:'/images/payment.png'
-    },
-    {
-        id:2,
-        title: 'پشتیبانی 24 ساعته',
-        image: '/images/support.png'   
-    },
-    {
-        id: 3,
-        title: 'ارسال سریع',
-        image: '/images/shipment.png'
-    },
-    {
-        id:4,
-        title: 'گارانتی اصالت کالا',
-        image: '/images/original.png'
-    }
-]
+const ProductAsurance = ({ 
+    payment = 'Easy payment', 
+    support = '24/7 Support', 
+    shipment = 'Fast Shipment', 
+    warranty = 'Original'
+} : {
+    payment?: propType;
+    support?: propType;
+    shipment?: propType;
+    warranty?: propType;
+}) => {
 
-const ProductAsurance = () => {
+    const assuranceItems : AssuranceItem[] = [
+        {
+            id:1,
+            title: payment,
+            image:'/images/payment.png'
+        },
+        {
+            id:2,
+            title: support,
+            image: '/images/support.png'   
+        },
+        {
+            id: 3,
+            title: shipment,
+            image: '/images/shipment.png'
+        },
+        {
+            id:4,
+            title: warranty,
+            image: '/images/original.png'
+        }
+    ]
+
     return (
         <div className="flex flex-row flex-wrap justify-around md:flex-nowrap lg:flex-col lg:divide-y bg-secondary rounded-2xl py-4 px-8">
         { 

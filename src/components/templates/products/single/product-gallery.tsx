@@ -39,7 +39,7 @@ export default function ProductGallery({ images = [] }: ProductGalleryProps) {
   return (
     <div className="w-full space-y-4">
       {/* Main Gallery Swiper */}
-      <div className="overflow-hidden rounded-2xl lg:rounded-tl-[250px] h-[400px]">
+      <div className="overflow-hidden rounded-2xl h-[400px]">
         <Swiper
           style={{ height: '400px' }}
           spaceBetween={10}

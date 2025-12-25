@@ -21,7 +21,7 @@ export default function Header() {
                         <Button variant="ghost" asChild>
                             <Link href="/login" className="flex items-center bg-white text-primary rounded-lg hover:bg-primary hover:text-white gap-2">
                                 <UserRound size={20} />
-                                ورود / ثبت نام 
+                               Login / Register
                             </Link>
                         </Button>
 

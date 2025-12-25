@@ -5,7 +5,7 @@ import ArticleCard from '@/components/modules/article-card';
 //shadcn ui
 import { Button } from '@/components/ui/button';
 //icons
-import { ArrowLeft } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 //types
 import type { ArticleInt } from '@/types'
 export default async function LatestArticles() {
@@ -26,12 +26,12 @@ export default async function LatestArticles() {
         <section className="py-10">
             <div className="flex items-center justify-between mb-4 md:mb-10">
 
-                <SectionTitle title="جدیدترین مقالات" />
+                <SectionTitle title="Latest Articles" />
                 
                 <Button variant="default" asChild>
                     <Link href="/articles" className="flex items-center gap-2">
-                        مشاهده همه
-                        <ArrowLeft size={20} />
+                        View all
+                        <ArrowRight size={20} />
                     </Link>
                 </Button>
             </div>

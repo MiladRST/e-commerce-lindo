@@ -57,7 +57,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     return (
         <>
 
-            <div className="flex flex-col md:flex-row md:flex-wrap gap-6 ">
+            <div className="flex flex-col flex-wrap md:flex-row md:flex-nowrap gap-6 ">
               {/* product gallery */}
               <div className="w-full mx-auto md:shrink-0 md:max-w-[400px]">
                 <ProductGallery images={product?.images || []} />
@@ -70,7 +70,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
               {/* product card */}
               <div className="w-full flex flex-col gap-4 lg:shrink-0 lg:max-w-68 ">
-                <ProductAssurance />
+                <ProductAssurance 
+                support={product?.returnPolicy}
+                shipment={product?.shippingInformation}
+                warranty={product?.warrantyInformation}
+                />
                 <AddToCart product={product} />
               </div>
 

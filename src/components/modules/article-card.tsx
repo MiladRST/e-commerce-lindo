@@ -22,7 +22,7 @@ export default function ArticleCard({ article } : { article: ArticleInt }) {
 
                 <Badge variant="secondary"
                 className="h-6 absolute bottom-14 left-1/2 -translate-x-1/2 text-xs z-10 ">
-                    مقاله
+                    article
                 </Badge>
 
                  <h3 className="min-h-12 text-center text-sm truncate font-normal group-hover:text-primary transition-all duration-300">

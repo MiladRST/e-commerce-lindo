@@ -2,64 +2,64 @@ import type { LucideIcon } from "lucide-react";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 export const NAVIGATION_ITEMS = [
     {
-        label: "صفحه اصلی",
+        label: "Home",
         href: "/", 
     },
     {
-        label: "فروشگاه",
+        label: "Shop",
         href: "/products",
     },
     {
-        label: "درباره ما",
+        label: "About Us",
         href: "/about",
     },
     {
-        label: "تماس با ما",
+        label: "Contact Us",
         href: "/contact",
     },  
     {
-        label: "سوالات متداول",
+        label: "FAQ",
         href: "/faq",
     },
 ];
 
 export const FOOTER_LINKS = [
     {
-        label: "پاسخ به سوالات متداول",
+        label: "FAQ",
         href: "/faq",
     },
     {
-        label: 'رویه های بازگردادن کالا',
+        label: 'lorem epsum',
         href: '/'
     },
     {
-        label: "حریم خصوصی",
+        label: "Privacy Policy",
         href: "/privacy",
     },
     {
-        label: "قوانین و مقررات",
+        label: "Terms & Conditions",
         href: "/terms",
     },
 ];
 
 export const SOCIAL_LINKS = [
     {
-        label: "فیسبوک",
+        label: "Facebook",
         href: "https://www.facebook.com",
         icon: Facebook as LucideIcon
     },
     {
-        label: "توییتر",
+        label: "Twitter",
         href: "https://www.twitter.com",
         icon: Twitter as LucideIcon
     },
     {
-        label: "لینکدین",
+        label: "Linkedin",
         href: "https://www.linkedin.com",
         icon: Linkedin as LucideIcon
     },
     {
-        label: "اینستاگرام",
+        label: "Instagram",
         href: "https://www.instagram.com",
         icon: Instagram as LucideIcon
     },

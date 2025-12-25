@@ -91,7 +91,7 @@ export default function FiltersSidebar({ currentFilters, categories } :
           <RadioGroup 
           onValueChange={(value) => updateFilters('category', value)} 
           value={currentFilters.category || 'all'}
-          style={{ direction: 'rtl' }}>
+          >
             <div className="flex items-center gap-2">
               <RadioGroupItem value="all" id="all" />
               <Label htmlFor="all">همه دسته بندی ها</Label>

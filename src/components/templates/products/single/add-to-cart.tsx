@@ -29,7 +29,7 @@ const AddToCart = ({ product } : { product : Product }) => {
     return(
         <>
             <div className="flex items-center justify-between gap-2">
-                <span className="font-bold">تعداد:</span>
+                <span className="font-bold">Count:</span>
                 <ProductCount 
                     count={count} 
                     increment={increment} 
@@ -37,12 +37,12 @@ const AddToCart = ({ product } : { product : Product }) => {
                 />
             </div>
             <div className="flex items-center justify-between gap-4">
-                <span className="font-bold">قیمت :</span> 
-                <span className="font-bold text-xl">{count === 0 ? product.price : (product.price * count).toFixed(2) } <b>تومان</b></span>
+                <span className="font-bold">Price:</span> 
+                <span className="font-bold text-xl">${count === 0 ? product.price : (product.price * count).toFixed(2) }</span>
             </div>
             <Button className="w-full h-12" size="lg" >
                 <ShoppingCart className="mr-2" />
-                افزودن به سبد خرید
+                Add To Cart
             </Button>
         </>
     )

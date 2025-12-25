@@ -32,10 +32,13 @@ export default function ProductCard({ product } : { product: Product }) {
                         <h3 className="min-h-12 line-clamp-2 font-semibold group-hover:text-primary transition-all duration-300">
                             {product?.title}
                         </h3>
-                        <div className="flex flex-col gap-1"> 
-                            <span className="text-sm text-primary font-bold"> {product?.price} <b>تومان</b>  </span>
+                        <div className="flex items-center gap-2"> 
+                            <span className="text-base text-primary font-bold"> 
+                                ${product?.price} 
+                            </span>
+                            
                             {product?.discountPercentage && (
-                                <span className="text-muted-foreground text-xs line-through"> {product?.price} <b>تومان</b>  </span>
+                                <span className="text-muted-foreground text-sm line-through"> ${( product.price / (1 - product.discountPercentage / 100) ).toFixed(2)}  </span>
                             )}
                         </div>
                     </div>

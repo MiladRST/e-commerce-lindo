@@ -3,7 +3,7 @@ import Link from "next/link";
 import ProductsListSkeleton from "@/components/skeleton/products-list";
 import ProductCard from "@/components/modules/product-card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { Product } from "@/types";
 import SectionTitle from "@/components/layouts/section-title";
 
@@ -44,13 +44,12 @@ export default async function LatestProducts() {
         <section className="py-10">
             <div className="flex items-center justify-between mb-4 md:mb-10">
 
-                <SectionTitle title="جدیدترین محصولات" />
+                <SectionTitle title="Latest Products" />
                 
-
                 <Button variant="default" asChild>
                     <Link href="/products" className="flex items-center gap-2">
-                        مشاهده همه
-                        <ArrowLeft size={20} />
+                        View all
+                        <ArrowRight size={20} />
                     </Link>
                 </Button>
             </div>
