@@ -23,30 +23,34 @@ export default function ContactPage() {
 
           <div className="w-full flex flex-col gap-4">
             
-            <SectionTitle title="تماس با ما" />
+            <SectionTitle title="Contact Us" />
 
-            <div className="bg-secondary rounded-4xl flex flex-col gap-2 p-8 lg:pr-12 lg:-mr-10">
+            <div className="bg-secondary rounded-4xl flex flex-col gap-2 p-8 lg:pl-12 lg:-ml-10">
               {/* address */}
               <h6 className="text-primary font-bold">
-                آدرس
+                Address
               </h6>
-              <p className="text-white text-sm">تهران، خیابان آزادی، بلوار آزادی، نبش کوچه 12، پلاک 12</p>
+              <p className="text-white text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, soluta mollitia vel praesentium labore libero a voluptatibus itaque fuga veritatis?
+              </p>
 
               {/* support */}
               <h6 className="text-primary font-bold">
-                پشتیبانی
+                Support
               </h6>
-              <p className="text-white text-sm">پشتیبانی 24 ساعته</p>
+              <p className="text-white text-sm">
+                24/7 Support
+              </p>
 
               {/* email */}
               <h6 className="text-primary font-bold">
-                ایمیل
+                Email
               </h6>
               <p className="text-white text-sm">info@example.com</p>
 
               {/* social media */}
               <h6 className="text-primary font-bold">
-                شبکه های اجتماعی
+               Socials
               </h6>
               <div className="flex items-center gap-3">                        
                   {SOCIAL_LINKS.map((link) => {

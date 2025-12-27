@@ -46,12 +46,12 @@ export default function ContactForm() {
                         name='name'
                         render={({ field }) => (
                         <FormItem className="grow">
-                            <FormLabel>نام و نام خانوادگی</FormLabel>
+                            <FormLabel>Full Name</FormLabel>
                             <FormControl>
                             <Input
                                 {...field}
                                 id='name'
-                                placeholder='نام و نام خانوادگی خود را وارد نمایید'
+                                placeholder='Please enter your full name'
                                 className="w-full h-11 bg-white text-foreground placeholder:text-xs placeholder:text-gray-400 rounded-2xl"
                             />
                             </FormControl>
@@ -65,12 +65,12 @@ export default function ContactForm() {
                         name='email'
                         render={({ field }) => (
                         <FormItem className="grow">
-                            <FormLabel>ایمیل</FormLabel>
+                            <FormLabel>Email</FormLabel>
                             <FormControl>
                             <Input
                                 {...field}
                                 id='email'
-                                placeholder='ایمیل خود را وارد نمایید'
+                                placeholder='Please enter your email address'
                                 className="w-full h-11 bg-white text-foreground placeholder:text-xs placeholder:text-gray-400 rounded-2xl"
                             />
                             </FormControl>
@@ -85,12 +85,12 @@ export default function ContactForm() {
                     name='message'
                     render={({ field }) => (
                       <FormItem className="w-full">
-                        <FormLabel>پیام</FormLabel>
+                        <FormLabel>Message</FormLabel>
                         <FormControl>
                           <Textarea
                             {...field}
                             id='message'
-                            placeholder='پیام خود را وارد نمایید'
+                            placeholder='Please enter your message'
                             className="w-full h-32 bg-white text-foreground placeholder:text-xs placeholder:text-gray-400 rounded-2xl"
                           />
                         </FormControl>
@@ -109,8 +109,8 @@ export default function ContactForm() {
                         {isSubmitting && (
                         <Loader2 className='mr-2 h-4 w-4 animate-spin' />
                         )}
-                        ارسال
-                        <SendHorizontal className="rotate-180" />
+                        Send
+                        <SendHorizontal />
                     </Button>
                 </div>
 
