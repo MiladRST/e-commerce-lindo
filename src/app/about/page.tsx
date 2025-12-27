@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
     return (
       <div>
-        <SectionTitle title="درباره ما" />
+        <SectionTitle title="About Us" />
       </div>
     )
 }

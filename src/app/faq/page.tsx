@@ -14,7 +14,7 @@ export default async function FAQPage() {
             flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center">
                     <h2 className="text-white text-2xl font-bold">
-                        سوالات متداول
+                        FAQ
                     </h2>
                    
                 </div>
@@ -31,11 +31,11 @@ export default async function FAQPage() {
                         Array.from({length: 10}).map((_, index) =>{ return (
                             <AccordionItem value={`item-${index+1}`} key={index}>
                                 <AccordionTrigger className="text-right leading-7">
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, reiciendis.
                                 </AccordionTrigger>
                                 <AccordionContent>
                                 <p className="leading-7">
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت  گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد
+                                   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, neque? Excepturi dignissimos doloremque mollitia? Nesciunt vitae exercitationem commodi dolores consequuntur!
                                 </p>
                                 
                                 </AccordionContent>

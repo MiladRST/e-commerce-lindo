@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const NewsletterFormSchema = () => 
   z.object({
     email: z
-    .email('ایمیل معتبر نیست.')
+    .email('Email is not valid.')
   })
 
 export type NewsletterFormValues = z.infer<ReturnType<typeof NewsletterFormSchema>>
