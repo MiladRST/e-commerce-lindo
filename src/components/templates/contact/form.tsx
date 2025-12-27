@@ -45,7 +45,7 @@ export default function ContactForm() {
                         control={control}
                         name='name'
                         render={({ field }) => (
-                        <FormItem className="grow">
+                        <FormItem className="relative grow mb-4">
                             <FormLabel>Full Name</FormLabel>
                             <FormControl>
                             <Input
@@ -55,7 +55,7 @@ export default function ContactForm() {
                                 className="w-full h-11 bg-white text-foreground placeholder:text-xs placeholder:text-gray-400 rounded-2xl"
                             />
                             </FormControl>
-                            <FormMessage className="text-xs"/>
+                            <FormMessage className="text-xs absolute left-0 -bottom-5"/>
                         </FormItem>
                         )}
                     />
@@ -64,7 +64,7 @@ export default function ContactForm() {
                         control={control}
                         name='email'
                         render={({ field }) => (
-                        <FormItem className="grow">
+                        <FormItem className="relative grow mb-4">
                             <FormLabel>Email</FormLabel>
                             <FormControl>
                             <Input
@@ -74,7 +74,7 @@ export default function ContactForm() {
                                 className="w-full h-11 bg-white text-foreground placeholder:text-xs placeholder:text-gray-400 rounded-2xl"
                             />
                             </FormControl>
-                            <FormMessage className="text-xs"/>
+                            <FormMessage className="text-xs absolute left-0 -bottom-5"/>
                         </FormItem>
                         )}
                     />
@@ -84,7 +84,7 @@ export default function ContactForm() {
                     control={control}
                     name='message'
                     render={({ field }) => (
-                      <FormItem className="w-full">
+                      <FormItem className="w-full relative mb-4">
                         <FormLabel>Message</FormLabel>
                         <FormControl>
                           <Textarea
@@ -94,7 +94,7 @@ export default function ContactForm() {
                             className="w-full h-32 bg-white text-foreground placeholder:text-xs placeholder:text-gray-400 rounded-2xl"
                           />
                         </FormControl>
-                        <FormMessage className="text-xs"/>
+                        <FormMessage className="text-xs absolute left-0 -bottom-5"/>
                       </FormItem>
                     )}
                 />

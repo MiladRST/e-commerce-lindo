@@ -2,9 +2,9 @@ import { z } from 'zod'
 
 export const ContactFormSchema = () => {
   return z.object({
-    name: z.string().min(3, 'نام و نام خانوادگی الزامی است.'),
-    email: z.email('ایمیل معتبر نیست.'),
-    message: z.string().min(10, 'پیام الزامی است.').max(500, 'پیام نباید بیشتر از 500 کاراکتر باشد.'),
+    name: z.string().min(3, 'Full name is required.'),
+    email: z.email('Email is not valid.'),
+    message: z.string().min(10, 'Message is required.').max(500, 'Maximum message lenght is 500 charachters.'),
   })
 }
 
