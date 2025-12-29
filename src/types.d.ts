@@ -32,10 +32,10 @@ export interface ProductCategory {
 // products
 interface ProductsSearchParams {
   category?: string;
-  minPrice?: string;
-  maxPrice?: string;
-  search?: string;
+  q?: string;
   sort?: string;
+  order?: 'asc' | 'desc';
+  page?: number | string;
 }
 
 //posts 

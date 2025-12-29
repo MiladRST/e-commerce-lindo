@@ -1,18 +1,21 @@
 
 //components
-import FiltersSidebar from "@/components/templates/products/FiltersSidebar";
+import ProductsFilters from "@/components/templates/products/products-filters";
 //types
-import type { ProductCategory, ProductsSearchParams } from '@/types'
+import type { ProductCategory } from '@/types'
+//constants
+import { BASE_URL } from "@/constants";
 
-export default async function ProductsSidebar({ filters } : { filters: ProductsSearchParams }) {
+export default async function ProductsSidebar() {
 
-    const response = await fetch('https://dummyjson.com/products/categories')
+    const response = await fetch(`${BASE_URL}/products/categories`, { next : { revalidate: 60 * 60 }})
+
     if(!response.ok) {
         throw new Error('Failed to fetch categories')
     }
     const data = await response.json()
     const categories = data as ProductCategory[]
 
-    return <FiltersSidebar currentFilters={filters} categories={categories} />
+    return <ProductsFilters categories={categories} />
     
 }

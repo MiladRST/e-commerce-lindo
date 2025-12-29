@@ -64,3 +64,5 @@ export const SOCIAL_LINKS = [
         icon: Instagram as LucideIcon
     },
 ];
+
+export const BASE_URL = process.env.API_BASE_URL

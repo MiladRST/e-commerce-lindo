@@ -1,14 +1,14 @@
 
 import CategorySlider from "./category-slider";
 import type { ProductCategory } from "@/types";
+import { BASE_URL} from '@/constants'
+
 export default async function ProductCategories() {
 
     async function getCategories() {
         try {
-            const response = await fetch("https://dummyjson.com/products/categories", {
+            const response = await fetch(`${BASE_URL}/products/categories`, {
                 next: { revalidate: 60 * 5 },
-                // cache: "force-cache" (default) for static data,
-                // or "no-store" if data must always be fresh.
             });
 
             if (!response.ok) {
