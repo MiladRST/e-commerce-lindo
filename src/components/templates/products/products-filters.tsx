@@ -8,9 +8,11 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from "@/components/ui/label"
+//components
+import TransitionLoader from "@/components/modules/transition-loader"
 //icons
 import { Loader2 } from 'lucide-react';
-//hooks
+
 
 export default function FiltersSidebar({ categories } : 
   { categories: ProductCategory[]}
@@ -82,9 +84,9 @@ export default function FiltersSidebar({ categories } :
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search products..."            
+            placeholder="Search products..."  
+            className="border border-primary"          
           />
-
           <Button variant='default' type='submit'>search</Button>
 
         </form>
@@ -142,11 +144,7 @@ export default function FiltersSidebar({ categories } :
       }
 
       {/* Loading indicator */}
-      {isPending && (
-        <div className="fixed z-99999 inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center text-sm text-white text-center">
-          <Loader2 className="animate-spin" />
-        </div>
-      )}
+      {isPending && <TransitionLoader />}
     </div>
   );
 }

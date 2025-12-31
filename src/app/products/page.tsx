@@ -22,7 +22,7 @@ export default async function ProductsPage(
 
         <aside className="w-80 shrink-0">
           <Suspense fallback={<div>Loading...</div>}>
-            <ProductsSidebar searchParams={searchParams} />
+            <ProductsSidebar />
           </Suspense>
         </aside>
         

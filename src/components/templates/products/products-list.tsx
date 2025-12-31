@@ -1,10 +1,12 @@
 import Link from "next/link";
+import Redirect from "next/navigation"
 //types
 import type { Product, ProductsSearchParams } from "@/types";
 //shadcn ui
 import { Button } from "@/components/ui/button";
 //components
 import ProductCard from "@/components/modules/product-card";
+import Pagination from "@/components/modules/pagination"
 //constants
 import { BASE_URL } from "@/constants";
 
@@ -14,19 +16,18 @@ export default async function ProductsList(
 ) {
 
   const filters = await searchParams;
-  console.log('product filters =>', filters)
-
+  const itemsPerPage=20
   
   const getProducts = async (filters: ProductsSearchParams) => {
     const { category, q, sort, order, page } = filters
 
-    const limit = 20
-    const skip = page && /^\d+$/.test(String(page)) ? ((Number(page)-1) * limit) : 1
+    
+    const skip = page && /^\d+$/.test(String(page)) ? ((Number(page)-1) * itemsPerPage) : 1
      
-    let baseUrl = `${BASE_URL}/products${q ? `/search?q=${q}&` : '?'}limit=${limit}&skip=${skip}`
+    let baseUrl = `${BASE_URL}/products${q ? `/search?q=${q}&` : '?'}limit=${itemsPerPage}&skip=${skip}`
 
     if(category && category !== 'all') {
-      baseUrl = `${BASE_URL}/products/category/${category}?limit=${limit}&skip=${skip}`
+      baseUrl = `${BASE_URL}/products/category/${category}?limit=${itemsPerPage}&skip=${skip}`
     }
 
     console.log('baseUrl => ', baseUrl)
@@ -49,8 +50,8 @@ export default async function ProductsList(
     }
   }
 
-  const { products } = await getProducts(filters)
-  
+  const { data, products } = await getProducts(filters)
+ 
   // if(category && category !== 'all' && products.length > 0) {
   //   products = products.filter((product: Product) => product.category === category)
   // }
@@ -69,10 +70,23 @@ export default async function ProductsList(
   }
    
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {products.map((product: Product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        { products.map((product: Product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+
+      {
+        data && data.total > itemsPerPage && (
+          <Pagination 
+            totalItems={data.total}
+            itemsPerPage={itemsPerPage}
+            maxVisible={5}
+          />
+        )
+      }
+      
+    </>
   );
 }

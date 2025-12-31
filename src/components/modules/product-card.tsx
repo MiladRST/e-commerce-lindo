@@ -11,8 +11,9 @@ export default function ProductCard({ product } : { product: Product }) {
             <Card className="relative max-w-full">
                 {/* discount badge */}
                 {product?.discountPercentage && (
-                    <span className="absolute z-10 top-0 left-3 bg-secondary text-white w-9 h-9 flex items-center justify-center rounded-b-full">
-                        %
+                    <span className="absolute z-10 top-0 left-3 bg-secondary text-white flex flex-col text-xs w-10 h-10 flex items-center justify-center rounded-b-full">
+                        {product.discountPercentage.toFixed(1)}
+                        <span>%</span>
                     </span>
                 )}
 
