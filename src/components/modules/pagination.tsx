@@ -101,7 +101,7 @@ export default function Pagination (
                     return (
                     <span
                         key={`dots-${idx}`}
-                        className="px-4 py-2 text-gray-500"
+                        className="px-4 py-2 flex items-center text-gray-500"
                     >
                         ...
                     </span>

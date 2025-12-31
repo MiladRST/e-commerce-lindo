@@ -82,7 +82,7 @@ export default async function ProductsList(
           <Pagination 
             totalItems={data.total}
             itemsPerPage={itemsPerPage}
-            maxVisible={5}
+            maxVisible={3}
           />
         )
       }
