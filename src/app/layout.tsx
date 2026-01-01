@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/providers/theme-provider";
+// import { ThemeProvider } from "@/providers/theme-provider";
 //styles
 import localFont from 'next/font/local'
 

@@ -1,19 +1,42 @@
 "use client"
-import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+//
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+//shadcn
+import {Button} from "@/components/ui/button"
+import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+//icons
+import { Loader2, SendHorizontal } from 'lucide-react'
+//validation schema
+import { LoginFormSchema, type LoginFormValues } from '@/validation/auth'
+
 
 
 export default function LoginForm() {
-    const router = useRouter()
-    //
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [isPending, setIsPending] = useState(false)
 
-    const handleLoginForm = async(e:React.FormEvent) => {
-        e.preventDefault()
-        //
-        setIsPending(true)
+    const router = useRouter()
+
+    const formSchema = LoginFormSchema()
+    
+    const form = useForm<LoginFormValues>({
+        resolver: zodResolver(formSchema),
+        mode: 'onChange',
+        defaultValues: {
+            username: '',
+            password: '',
+        }
+    })
+
+    const { handleSubmit, formState, control } = form
+    const { isSubmitting } = formState
+
+    const onSubmit = async (data : LoginFormValues) => {
+       console.log(data)
+
+        const { username, password } = data
+
         try {
             const response = await fetch("/api/auth/login", {
                 method: "POST",
@@ -39,27 +62,73 @@ export default function LoginForm() {
         } catch(error) {
             console.log(error)
         } finally {
-            setIsPending(false)
-        }
         
+        }
     }
 
     return (
-        <form onSubmit={handleLoginForm}>
-            <div>
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" name="username" value={username} onChange={e => setUsername(e.target.value)} />
-            </div>
+        <Form {...form}>
+            <form noValidate 
+            onSubmit={handleSubmit(onSubmit)} 
+            className="relative flex flex-col w-full max-w-full gap-4">
 
-            <div>
-                <label htmlFor="password">Password</label>
-                <input type="text" id="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
-            </div>
+               
+                <FormField
+                    control={control}
+                    name='username'
+                    render={({ field }) => (
+                    <FormItem className="relative grow mb-4">
+                        <FormLabel>Username</FormLabel>
+                        <FormControl>
+                        <Input
+                            {...field}
+                            id='username'
+                            placeholder='Please enter your username'
+                            className="w-full h-11 bg-white text-foreground placeholder:text-xs placeholder:text-gray-400 rounded-2xl"
+                        />
+                        </FormControl>
+                        <FormMessage className="text-xs absolute left-0 -bottom-5"/>
+                    </FormItem>
+                    )}
+                />
 
-            <button type="submit">Submit</button> 
+                <FormField
+                    control={control}
+                    name='password'
+                    render={({ field }) => (
+                    <FormItem className="relative grow mb-4">
+                        <FormLabel>Password</FormLabel>
+                        <FormControl>
+                        <Input
+                            {...field}
+                            id='password' type="password"
+                            placeholder='Please enter your password'
+                            className="w-full h-11 bg-white text-foreground placeholder:text-xs placeholder:text-gray-400 rounded-2xl"
+                        />
+                        </FormControl>
+                        <FormMessage className="text-xs absolute left-0 -bottom-5"/>
+                    </FormItem>
+                    )}
+                />
 
-            { isPending && <p>loading ...</p>}
-            
-        </form>
+                
+
+                <div className="mt-2">
+                    <Button
+                        type='submit'
+                        variant='secondary'
+                        disabled={isSubmitting}
+                        className='w-full h-12 rounded-2xl'
+                    >
+                        {isSubmitting && (
+                        <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                        )}
+                        Send
+                        <SendHorizontal />
+                    </Button>
+                </div>
+
+            </form>
+        </Form>
     )
 }

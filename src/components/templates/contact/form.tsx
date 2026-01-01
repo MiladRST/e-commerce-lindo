@@ -30,7 +30,7 @@ export default function ContactForm() {
     const { handleSubmit, formState, control } = form
     const { isSubmitting } = formState
 
-    const onSubmit = (data : NewsletterFormValues) => {
+    const onSubmit = (data : ContactFormValues) => {
         console.log(data)
     }
 
