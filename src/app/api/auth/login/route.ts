@@ -13,12 +13,10 @@ export async function POST(req: Request) {
 
         // data validation
         if(!username || !password) {
-            return NextResponse.json({ message: "Username or password is not valid!" } , { status: 422 })
+            return NextResponse.json({ success: false, message: "Username or password is not valid!" } , { status: 422 })
         }
 
         // fetch request to external Api
-        console.log('base-url', BASE_URL)
-
         const response = await fetch(`${BASE_URL}/auth/login`, {
             method: "POST",
             headers: {
@@ -28,7 +26,7 @@ export async function POST(req: Request) {
         })
 
         if(!response.ok) {
-            return NextResponse.json({ message: "Failed to login!"} , { status: response.status })
+            return NextResponse.json({ success: false, message: "Failed to login!"} , { status: response.status })
         } 
 
         const data = await response.json();
@@ -36,7 +34,7 @@ export async function POST(req: Request) {
 
         console.log(data)
 
-        return NextResponse.json({ message: 'You are logged-in successfully!', data } , { 
+        return NextResponse.json({ success: true, message: 'You are logged-in successfully!', user: data } , { 
             status : 200,
             headers: {
                 "Set-Cookie": `token=${accessToken};path=/;httpOnly=true;max-age=${60*60}` // 1 Hour or 60 minutes
