@@ -19,7 +19,7 @@ export default function Header() {
                     <div className="hidden md:flex items-center flex-row-reverse gap-4">
                         {/* login & regiter */}
                         <Button variant="ghost" asChild>
-                            <Link href="/login" className="flex items-center bg-white text-primary rounded-lg hover:bg-primary hover:text-white gap-2">
+                            <Link href="/auth/login" className="flex items-center bg-white text-primary rounded-lg hover:bg-primary hover:text-white gap-2">
                                 <UserRound size={20} />
                                Login / Register
                             </Link>

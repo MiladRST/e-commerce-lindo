@@ -14,6 +14,10 @@ export const NAVIGATION_ITEMS = [
         href: "/about",
     },
     {
+        label: "Blog",
+        href: "/articles"
+    },
+    {
         label: "Contact Us",
         href: "/contact",
     },  
