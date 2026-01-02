@@ -22,6 +22,8 @@ export const authUser = async () => {
             })
     
             const data = await response.json()
+
+            user = data 
     
             console.log('userAuth data => ', data)
 
