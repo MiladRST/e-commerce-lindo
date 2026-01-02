@@ -9,7 +9,8 @@ import "swiper/css";
 import Header from "@/components/layouts/header";
 import Footer from "@/components/layouts/footer";
 import Container from "@/components/modules/container";
-
+//utils
+import { authUser } from "@/utils/auth"
 //fonts
 const IRANSans = localFont({
   src: [
@@ -72,11 +73,14 @@ export const metadata: Metadata = {
   }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const user = await authUser()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${IRANSans.className} antialiased`}>
