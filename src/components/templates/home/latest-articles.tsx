@@ -20,7 +20,6 @@ export default async function LatestArticles() {
     
     const { posts: articles } = data 
 
-    console.log('latest articles data', articles)
 
     return (
         <section className="py-10">

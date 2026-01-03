@@ -1,5 +1,8 @@
 import type { LucideIcon } from "lucide-react";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+
+export const ACCESS_TOKEN = 'token';
+
 export const NAVIGATION_ITEMS = [
     {
         label: "Home",

@@ -51,3 +51,15 @@ export interface ArticleInt {
   views: number;
   userId: number;
 }
+
+export interface User {
+  readonly id : number;
+  username: string;
+  email?: string;
+  firstName: string;
+  lastName: string;
+  image?: string;
+  gender?: string;
+  iat: number;
+  exp: number;
+}

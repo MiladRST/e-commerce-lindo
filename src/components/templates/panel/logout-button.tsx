@@ -16,7 +16,7 @@ export default function LogoutButton() {
             const data = await response.json();
             console.log(data)
             if(response.ok) {
-                router.replace('/')
+                router.refresh()
             }
         }catch(error){
             console.log(error)

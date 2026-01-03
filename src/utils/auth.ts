@@ -1,13 +1,21 @@
+"use server"
+
 import { cookies } from 'next/headers';
+import { verify } from 'jsonwebtoken';
+import { jwtDecode } from "jwt-decode";
+
 //constants
-import { BASE_URL } from '@/constants';
+import { BASE_URL, ACCESS_TOKEN } from '@/constants';
+
+export const getAccessToken = async () => {
+    const cookieStore = await cookies()
+    const token = cookieStore.get(ACCESS_TOKEN)?.value || null 
+    return token;
+}
 
 export const authUser = async () => {
     
-    const cookieStore = await cookies()
-  
-    const token = cookieStore.get('token')?.value || null
-    
+    const token = await getAccessToken()
     let user = null 
 
     if(token) {
@@ -34,4 +42,30 @@ export const authUser = async () => {
     }
 
     return user;
+}
+
+export const verifyAccessToken = async (token: string) => {
+
+    try{
+        const tokenPayload = verify(token, process.env.ACCESS_TOKEN_SECRET_KEY!)
+        return tokenPayload;
+    }catch(err) {
+        console.log('token is not verified!', err)
+        return false
+    }    
+}
+
+export const decodeAccessToken = async () => {
+    const token = await getAccessToken()
+
+    if(!token) return null
+
+    try {
+        const decoded = jwtDecode(token)
+        return decoded
+    }catch(error) {
+        console.log('decodeAccessToken error => ', error)
+        return null
+    }
+
 }

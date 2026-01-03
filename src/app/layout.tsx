@@ -10,7 +10,8 @@ import Header from "@/components/layouts/header";
 import Footer from "@/components/layouts/footer";
 import Container from "@/components/modules/container";
 //utils
-import { authUser } from "@/utils/auth"
+import { authUser, decodeAccessToken } from "@/utils/auth"
+import { verify } from "crypto";
 //fonts
 const IRANSans = localFont({
   src: [
@@ -79,7 +80,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const user = await authUser()
+  // const user = await authUser()
+const payload = await decodeAccessToken()
+console.log('layout payload => ', payload)
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -90,7 +93,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange>
         </ThemeProvider> */}
-            <Header />
+            <Header user={payload ? JSON.parse(JSON.stringify(payload)) : null}/>
             <Container extraClasses="relative py-10">
               {children}
             </Container>

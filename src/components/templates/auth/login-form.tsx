@@ -55,7 +55,7 @@ export default function LoginForm() {
             console.log('response data', data)
             
             if(response.status === 200 && data.success) {
-                router.replace('/panel')
+                router.refresh()
             }
 
             
